@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "kl1nge5.create_blueprint_tweaks.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "create_blueprint_tweaks.refmap.json",
+  "mixins": [
+    "CreateBlockHelperMixin",
+    "CreateSchematicannonBlockEntityMixin",
+    "CreateSchematicPlacePacketMixin"
+  ],
+  "client": [
+    "CreateToolTypeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

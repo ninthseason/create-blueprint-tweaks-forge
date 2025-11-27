@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "create_blueprint_tweaks:block/air_placeholder" }
+  }
+}
