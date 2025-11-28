@@ -53,13 +53,9 @@ abstract class CreateSchematicPlacePacketMixin {
         return my_creative_check(player);
 	}
 
-	@Inject(method = "lambda$handle$2", at = @At("HEAD"), cancellable = true, remap = false)
+	@Inject(method = "lambda$handle$2", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerPlayer;level()Lnet/minecraft/world/level/Level;"), cancellable = true, remap = false)
 	private void lambda$handle$2(NetworkEvent.Context context, CallbackInfo ci) {
         ServerPlayer player = context.getSender();
-        if (player == null || !my_creative_check(player)) {
-            ci.cancel();
-            return;
-        }
 		// 检查玩家主手真的是所宣称的原理图，防止用神奇的手法作弊
         ItemStack mainHandItem = player.getMainHandItem();
         if (!mainHandItem.getTag().toString().equals(stack.getTag().toString())){
