@@ -4,8 +4,9 @@
 
 The mod Tweaked Create's blueprint system:
 
-1. now can print the blueprint directly in survival mode.(can be disabled in config)
-2. add an air-placeholder block, while printing blueprint, the block will be replaced by air.
+1. now can print the blueprint directly in survival mode. (Configurable)
+2. You can use NBT to determine whether a blueprint can be directly printed in Survival Mode. (See the config file for details)
+3. add an air-placeholder block, while printing blueprint, the block will be replaced by air.
 
 Purpose: With this mod, you can create modpack that preset some blueprint structures for player to quickly generate.
 
@@ -13,8 +14,9 @@ Purpose: With this mod, you can create modpack that preset some blueprint struct
 
 该模组微调了机械动力的蓝图系统：
 
-1. 现在可以在生存模式下使用蓝图的直接打印功能。（可在配置中禁用）
-2. 添加了一个空气占位符方块，打印蓝图时，该方块会代之以空气。
+1. 现在可以在生存模式下使用蓝图的直接打印功能。（可配置）
+2. 可以使用NBT决定蓝图是否能在生存模式下直接打印。（详见配置文件）
+3. 添加了一个空气占位符方块，打印蓝图时，该方块会代之以空气。
 
 目的：该模组面向整合包制作，你可以预设一些蓝图结构，以供玩家直接生成。
 
