@@ -10,7 +10,7 @@
     "CreateSchematicPlacePacketMixin"
   ],
   "client": [
-    "CreateToolTypeMixin"
+    "CreateSchematicHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

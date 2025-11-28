@@ -10,7 +10,18 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 @Mod.EventBusSubscriber(modid = BlueprintTweaks.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config {
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-
+    private static final ForgeConfigSpec.BooleanValue NBT_MODE = BUILDER
+            .comment(
+                    "When enabled, allow to use item's nbt as settings. Nbt settings will override global settings.",
+                    "You can give item following nbts:",
+                    "canSurvivalPrint: true/false",
+                    "survivalPrintConsume: true/false",
+                    "For example, if you want blueprints created by players through the blueprint table to not be printed directly,",
+                    "and only the blueprints you give them through special means (such as FTB quests) to be printable,",
+                    "you can set nbtMode = true, canSurvivalPrint = false, and survivalPrintConsume = true in this configuration file.",
+                    "With these settings, blueprints will not be printable by default unless you set canSurvivalPrint: true in the blueprint’s NBT."
+            )
+            .define("nbtMode", false);
     private static final ForgeConfigSpec.BooleanValue ALLOW_PRINT_IN_SURVIVAL_MODE = BUILDER
             .comment("Whether blueprints can be printed directly in survival mode")
             .define("canSurvivalPrint", true);
@@ -23,11 +34,21 @@ public class Config {
 
     public static boolean canSurvivalPrint;
     public static boolean survivalPrintConsume;
+    public static boolean nbtMode;
 
     @SubscribeEvent
-    static void onLoad(final ModConfigEvent event)
-    {
+    static void onLoad(final ModConfigEvent.Loading event) {
+        bakeConfig();
+    }
+
+    @SubscribeEvent
+    static void onReloading(final ModConfigEvent.Reloading event) {
+        bakeConfig();
+    }
+
+    private static void bakeConfig() {
         canSurvivalPrint = ALLOW_PRINT_IN_SURVIVAL_MODE.get();
         survivalPrintConsume = SURVIVAL_PRINT_CONSUME.get();
+        nbtMode = NBT_MODE.get();
     }
 }
